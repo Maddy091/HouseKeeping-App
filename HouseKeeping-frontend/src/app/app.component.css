@@ -1,0 +1,311 @@
+.navbar {
+    background-color: #ffffff;
+}
+
+.navbar .navbar-brand {
+    color: #000000;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .nav-link {
+    color: #000000;
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.navbar .nav-link:hover {
+    color: #f1bc0f;
+}
+
+.navbar .nav-link.active {
+    color: #f1c40f;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+}
+
+.text-light {
+    color: #f8f9fa;
+}
+
+#maincards {
+    background-image: linear-gradient(#ffffff, #151515);
+}
+
+.sidebar {
+    background-image: linear-gradient(#ffffff, #151515);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    background-color: #f8f9fa;
+    border: 1px lightgray groove;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex: 1;
+    margin: 0 10px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.request-count, .suggestion-count, .complaint-count {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.bi {
+    font-size: 1.8rem;
+}
+
+.text-success {
+    color: #28a745;
+    font-weight: 500;
+}
+
+.text-danger {
+    color: #dc3545;
+    font-weight: 500;
+}
+
+small {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px;
+    }
+    .navbar .navbar-brand {
+        font-size: 1.3rem;
+    }
+    .sidebar {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+
+
+
+
+
+
+/* logo design only  */
+.wrapper {
+    display: flex; /* Enable flexbox */
+    align-items: center; /* Center items vertically */
+    height: 40px; /* Fixed height for the logo */
+    width: auto; /* Adjust width based on content */
+}
+ 
+.circ1 {
+    z-index: 1; /* Lower z-index than text */
+    height: 40px; /* Adjusted size */
+    width: 40px; /* Adjusted size */
+    border-radius: 50%; /* Circle */
+    border: solid 10px rgba(191, 251, 80, 0.7); /* Border size */
+    opacity: .7; /* Slightly more visible */
+    animation: puff-in-center 1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+ 
+.circ2 {
+    z-index: 0; /* Lower z-index than text */
+    height: 40px; /* Adjusted size */
+    width: 40px; /* Adjusted size */
+    border-radius: 50%; /* Circle */
+    background: #0a9bcb;
+    position: relative; /* Keep it relative */
+    left: -5px; /* Adjust position to overlap with circ1 */
+    top: -5px; /* Adjust position to overlap with circ1 */
+    animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+ 
+.text-container {
+    display: flex; /* Enable flexbox for text alignment */
+    flex-direction: column; /* Stack text vertically */
+    align-items: flex-start; /* Align text to the left */
+    padding-left: 8px; /* Space between logo and text */
+}
+ 
+h1.moon {
+    font-family: 'Poppins', sans-serif; /* Updated font */
+    margin-top: 20px;
+    margin-bottom: -3px;
+    z-index: 2; /* Higher z-index to be in front */
+    font-size: 1.2rem; /* Font size */
+    letter-spacing: 0.05rem; /* Letter spacing */
+    font-family: 'Nunito', sans-serif;
+    animation: tracking-in-expand .4s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+ 
+p.detail {
+    z-index: 2; /* Higher z-index to be in front */
+    position: relative; /* Ensure it flows in the layout */
+    font-family: 'Poppins', sans-serif; /* Updated font */
+    font-size: 0.9rem; /* Font size */
+    font-family: 'Nunito', sans-serif;
+    animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+ 
+ 
+ 
+/* Keyframes (keep your existing keyframes as they are) */
+@-webkit-keyframes puff-in-center {
+    0% {
+        -webkit-transform: scale(2);
+                transform: scale(2);
+        -webkit-filter: blur(4px);
+                filter: blur(4px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+    }
+}
+@keyframes puff-in-center {
+    0% {
+        -webkit-transform: scale(2);
+                transform: scale(2);
+        -webkit-filter: blur(4px);
+                filter: blur(4px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+    }
+}
+ 
+@-webkit-keyframes slide-in-blurred-top {
+    0% {
+        -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+                transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+        -webkit-transform-origin: 50% 0%;
+                transform-origin: 50% 0%;
+        -webkit-filter: blur(40px);
+                filter: blur(40px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+                transform: translateY(0) scaleY(1) scaleX(1);
+        -webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+        -webkit-filter: blur(0);
+                filter: blur(0);
+        opacity: 1;
+    }
+}
+ 
+@keyframes slide-in-blurred-top {
+    0% {
+        -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+                transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+        -webkit-transform-origin: 50% 0%;
+                transform-origin: 50% 0%;
+        -webkit-filter: blur(40px);
+                filter: blur(40px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+                transform: translateY(0) scaleY(1) scaleX(1);
+        -webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+        -webkit-filter: blur(0);
+                filter: blur(0);
+        opacity: 1;
+    }
+}
+ 
+@-webkit-keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+ 
+@-webkit-keyframes text-focus-in {
+    0% {
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+    }
+}
+@keyframes text-focus-in {
+    0% {
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+    }
+}
+ 
+ 

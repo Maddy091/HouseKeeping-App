@@ -1,0 +1,80 @@
+<body>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Add Admin</h2>
+    
+    <!-- Admin Form -->
+    <form (submit)="onAddAdmin()">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                [(ngModel)]="admin.username" 
+                name="username" 
+                placeholder="Enter Username" 
+                required 
+                #username="ngModel">
+            <!-- Display this only if the input is touched and invalid -->
+            <span style="color: red;" *ngIf="username.touched && username.invalid">Username is required*</span>
+        </div>
+    
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Password</label>
+            <input 
+                type="password" 
+                minlength="3"
+                maxlength="8"
+                class="form-control" 
+                [(ngModel)]="admin.password" 
+                name="password" 
+                placeholder="Enter Password" 
+                required 
+                #password="ngModel">
+            <!-- Display this only if the input is touched and invalid -->
+            <span style="color: red;" *ngIf="password.touched && password.invalid">Password is required</span>
+        </div>
+  
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Hostel</label>
+          <select id="hostel" class="form-control" [(ngModel)]="admin.hostel" name="hostel" required>
+            <option value="" disabled>Select Hostel</option>
+            <option *ngFor="let hostel of hostels" [value]="hostel">{{hostel}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <button type="submit" class="btn btn-success w-100 mb-4">Add Admin</button>
+        </div>
+        <div class="col-md-6 mb-3">
+          <button type="reset" class="btn btn-danger w-100 mb-4">Reset</button>
+        </div>
+      </div>
+    </form>
+  
+    <!-- Admins Table -->
+    <h3 class="text-center mb-4">Admin List</h3>
+    <table class="table table-striped text-center">
+      <thead class="thead-dark">
+        <tr>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Hostel</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let adm of admins">
+          <td>{{adm.username}}</td>
+          <td>{{adm.password}}</td>
+          <td>{{adm.hostel}}</td>
+          <td>
+            <button class="btn btn-warning me-2" (click)="onEditAdmin(adm)">Update</button>
+            <button class="btn btn-danger" (click)="onDeleteAdmin(adm.admin_id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+</body> 

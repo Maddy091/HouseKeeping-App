@@ -1,0 +1,33 @@
+<body>
+<div class="container my-5">
+    <div class="card shadow p-4">
+      <h2 class="mb-4 text-center">Send Clean Request</h2>
+     
+      <form>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label class="form-label">Date</label>
+              <input type="date" name="reqDate" [(ngModel)]="reqDate" class="form-control" required>
+            </div>
+          </div>
+         
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label class="form-label">Available Time</label>
+              <input type="time" name="reqTime" [(ngModel)]="reqTime" class="form-control" required>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="row text-start" *ngIf="notavl">
+          <p style="color: red;"> No worker is available for timing {{reqTime}} </p>
+        </div>
+ 
+        <div class="text-start">
+          <button type="submit" (click)="sendReq()" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+</div>
+</body>

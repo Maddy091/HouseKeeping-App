@@ -1,0 +1,39 @@
+<body>
+<div class="container mt-4">
+    <div class="card p-4 shadow" style="border-radius: 15px;">
+      <h2 class="text-center">Allot HouseKeeper</h2>
+      
+      <form>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label">Request ID</label>
+            <input type="text" name="requestId" class="unedit form-control" [(ngModel)]="cleanreq.requestId" readonly>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Room Number</label>
+            <input type="text" name="roomNumber" class="unedit form-control" [(ngModel)]="cleanreq.std.roomNumber" readonly>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Time Requested</label>
+            <input type="text" name="timeRequested" class="unedit form-control" [(ngModel)]="cleanreq.reqtime" readonly>
+          </div>
+        </div>
+    
+        <div class="mb-3" [hidden]="notavl">
+          <label class="form-label">HouseKeeper</label>
+          <select class="form-select" [(ngModel)]="cleanreq.houseKeeper" name="houseKeeper" required>
+            <option value="Select Worker" disabled selected> Select Worker </option>
+            <option *ngFor="let keeper of houseKeepers" [ngValue]="keeper">{{ keeper.wordkername }}</option>
+          </select>
+        </div>
+
+        <div [hidden]="!notavl">
+          <p class="alert alert-danger">No Worker Available for this Time Span</p>
+        </div>
+    
+        <button type="button" class="btn btn-primary w-50" (click)="onSubmit()">Submit</button>
+        <button type="reset" class="btn btn-danger w-50" (click)="onReset()">Decline</button>
+      </form>
+    </div>
+</div>
+</body> 

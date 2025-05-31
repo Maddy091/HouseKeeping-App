@@ -1,0 +1,94 @@
+<body>
+<div class="container my-5">
+    <div class="card shadow p-4">
+        <div class="d-flex justify-content-between mb-4">
+            <h2 class="text-start">Your Profile</h2>
+            <div class="d-flex justify-content-between mb-4">
+                <button class="btn btn-outline-primary" (click)="toggleEmailChange()" *ngIf="!showEmailChange"> Change Email </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-outline-primary" (click)="togglePasswordChange()" *ngIf="!showPasswordChange"> Change Password </button>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <p><strong>Roll Number:</strong> {{ student.rollId }}</p>
+                <p><strong>Hostel:</strong> {{ student.hostel }}</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Floor:</strong> {{ student.floor }}</p>
+                <p><strong>Room Number:</strong> {{ student.roomNumber }}</p>
+            </div>
+        </div>
+        
+        <div *ngIf="emailChanged" class="alert alert-success">
+            Email Address Changed Successfully
+        </div>
+        <div *ngIf="passwordChanged" class="alert alert-success">
+            Password Changed Successfully
+        </div>
+
+        <div *ngIf="showPasswordChange">
+            <div *ngIf="passwordMismatch" class="alert alert-danger">
+                New passwords do not match Current Password
+            </div>
+            <div *ngIf="incorrectPass" class="alert alert-danger">
+                Please enter correct current password
+            </div>
+
+            <form #passwordForm="ngForm" (ngSubmit)="onSubmitPasswordChange()">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="currentPassword" class="form-label">Current Password</label>
+                        <input type="password" id="currentPassword" class="form-control" [(ngModel)]="currentPassword" name="currentPassword" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" [(ngModel)]="student.email" name="email" required email #emailCtrl="ngModel">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="newPassword" class="form-label">New Password</label>
+                        <input type="password" id="newPassword" class="form-control" [(ngModel)]="newPassword" name="newPassword" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
+                        <input type="password" id="confirmNewPassword" class="form-control" [(ngModel)]="confirmNewPassword" name="confirmNewPassword" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Save Password</button>
+                        <button type="button" class="btn btn-secondary" (click)="cancelPasswordChange()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <div *ngIf="showEmailChange">
+            <form #emailForm="ngForm" (ngSubmit)="onSubmitEmailChange()">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="email" class="form-label">Email Address</label>
+                      <input type="email" class="form-control" [(ngModel)]="student.email" name="email" required email #emailCtrl="ngModel">
+                    </div>
+                </div>
+                  
+                <div *ngIf="emailCtrl.invalid && emailCtrl.touched">
+                    <small *ngIf="emailCtrl.errors?.['required']" class="text-danger">Email is required.</small>
+                    <small *ngIf="emailCtrl.errors?.['email']" class="text-danger">Please enter a valid email address.</small>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Save Email</button>
+                        <button type="reset" class="btn btn-secondary" (click)="cancelEmailChange()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>

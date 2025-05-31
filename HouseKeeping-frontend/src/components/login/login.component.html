@@ -1,0 +1,81 @@
+<body>
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4" style="width: 400px;">
+      <div class="text-center mb-3">
+        <h2 [hidden]="otpsend || forgetPage">Login</h2>
+        <h2 [hidden]="!otpsend">Reset Password</h2>
+        <h2 [hidden]="!forgetPage">Forget Password</h2>
+      </div>
+
+      <!-- Role Selection -->
+      <div [hidden]="otpsend || forgetPage" class="btn-group mb-4 w-100" role="group" aria-label="Role Selection">
+        <button type="button" class="btn btn-outline-dark" (click)="setRole('student')" [ngClass]="{'active': selectedRole === 'student'}">Student</button>
+        <button type="button" class="btn btn-outline-dark" (click)="setRole('admin')" [ngClass]="{'active': selectedRole === 'admin'}">Admin</button>
+      </div>
+
+      <form [hidden]="!otpsend">
+        <div class="alert alert-success text-center" *ngIf="resetpasssuccess">
+          {{message}}
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Enter OTP</label>
+          <input type="number" class="form-control" [(ngModel)]="inputOtp" name="inputOtp" placeholder="Enter 6-Digit OTP" required>
+        </div>
+        <button type="button" class="btn w-100" style="background-color: orange; color: black; font-weight: 600; box-shadow: 0px 2px 3px black;" (click)="onVerifyOtp()">Verify OTP</button>
+      </form>
+      
+
+      <div class="alert alert-danger text-center" *ngIf="stdNotFound || incorrectMail || invalidPass">
+        {{message}}
+      </div>
+
+      <!-- Login Form -->
+      <form [hidden]="otpsend">
+        <div *ngIf="selectedRole === 'student'">
+          <!-- Student Login -->
+          <div class="mb-3">
+            <label class="form-label">Roll Number</label>
+            <input type="number" class="form-control" [(ngModel)]="studentCredentials.rollId" name="studentCredentials.rollId" placeholder="Enter Roll Number" required>
+          </div>
+          <div class="mb-3" *ngIf="!forgetPage">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" [(ngModel)]="studentCredentials.password" name="studentCredentials.password" placeholder="Enter Password" required>
+          </div>
+          <div class="mb-3" *ngIf="forgetPage">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" [(ngModel)]="studentCredentials.email" name="email" placeholder="Enter Email" required>
+          </div>
+          <!-- Student Login Button -->
+          <button *ngIf="!forgetPage" type="button" class="btn w-100" style="background-color: #dbbc66; color: black; font-weight: 600; box-shadow: 0px 2px 3px black;" (click)="onStudentLogin()">Login as Student</button>
+          <button *ngIf="forgetPage" type="button" class="btn w-100" [disabled]="isLoading"
+              style="background-color: orange; color: black; font-weight: 600; box-shadow: 0px 2px 3px black;" (click)="onSendOTP()">
+            <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+            <span *ngIf="!isLoading">Send OTP</span>
+            <span *ngIf="isLoading">Sending...</span>
+          </button>
+          <br><br>
+          <div class="text-center" *ngIf="!forgetPage">
+            <a class="text-danger" style="cursor: pointer;" (click)="showForgetpage()">forget password?</a>
+          </div>
+          <div class="text-center" *ngIf="forgetPage">
+            <a class="text-success" style="cursor: pointer;" (click)="showForgetpage()">Login page</a>
+          </div>
+        </div>
+
+        <div *ngIf="selectedRole === 'admin'">
+          <!-- Admin Login -->
+          <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" [(ngModel)]="adminCredentials.username" name="adminCredentials.username" placeholder="Enter Username" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" [(ngModel)]="adminCredentials.password" name="adminCredentials.password" placeholder="Enter Password" required>
+          </div>
+          <!-- Admin Login Button -->
+          <button type="button" class="btn btn-success w-100" style="font-weight: 500; box-shadow: 0px 2px 3px black;" (click)="onAdminLogin()">Login as Admin</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>

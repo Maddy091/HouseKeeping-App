@@ -1,0 +1,118 @@
+<!-- home.component.html -->
+<body>
+<div class="home-container">
+ 
+  <div class="page">
+      <main class="main page__main">
+        <h1 class="main__title" [ngClass]="{'title-move-down': isHeroHidden}" >Here You Get
+          <span class="main__word" id="typed"></span>.
+        </h1>
+      </main>
+    </div>
+ 
+ 
+  <!-- Hero Section -->
+  <div class="hero-content" [ngClass]="{'hero-hidden': isHeroHidden}" [hidden]="logged">
+     
+      <div class="welcome-section">
+         
+          <h1> <div class="welcomeh1">Welcome to Hostel </div>
+              <!-- Jumping Text Section -->
+              <div class="jumping-text">
+                  <div class="box">
+                      <span>H</span>
+                      <span>O</span>
+                      <span>U</span>
+                      <span>S</span>
+                      <span>K</span>
+                      <span>E</span>
+                      <span>E</span>
+                      <span>P</span>
+                      <span>I</span>
+                      <span>N</span>
+                      <span>G</span>
+                      <span>!</span>
+                  </div>
+              </div></h1>
+          <p>Your Hostel room cleaning at your convenience.</p>
+          <div class="cta-buttons">
+              <a routerLink="/login" class="btn btn-outline-light">Schedule Cleaning</a>
+             
+          </div>
+      </div>
+     
+  </div>
+</div>
+ 
+<!-- Features Section -->
+<div class="features-section">
+  <div class="features-carousel" >
+    <div class="feature-card">
+      <i class="bi bi-house-fill feature-icon"></i>
+      <h4>Request Cleaning Easily</h4>
+      <p>Set your cleaning requests according to your availability.</p>
+    </div>
+    <div class="feature-card">
+      <i class="bi bi-calendar2-check-fill feature-icon"></i>
+      <h4>Real-Time Status</h4>
+      <p>Get live updates about your cleaning request and schedules.</p>
+    </div>
+    <div class="feature-card">
+      <i class="bi bi-people-fill feature-icon"></i>
+      <h4>Manage & Coordinate</h4>
+      <p>Effortlessly communicate with our cleaning staff.</p>
+    </div>
+    <!-- New Feature Card -->
+    <div class="feature-card">
+      <i class="bi bi-bell-fill feature-icon"></i>
+      <h4>Notifications & Reminders</h4>
+      <p>Receive timely notifications for upcoming cleaning schedules and reminders.</p>
+    </div>
+ 
+    <!-- Duplicating cards for infinite effect -->
+    <div class="feature-card">
+      <i class="bi bi-house-fill feature-icon"></i>
+      <h4>Request Cleaning Easily</h4>
+      <p>Set your cleaning requests according to your availability.</p>
+    </div>
+    <div class="feature-card">
+      <i class="bi bi-calendar2-check-fill feature-icon"></i>
+      <h4>Real-Time Status</h4>
+      <p>Get live updates about your cleaning request and schedules.</p>
+    </div>
+    <div class="feature-card">
+      <i class="bi bi-people-fill feature-icon"></i>
+      <h4>Manage & Coordinate</h4>
+      <p>Effortlessly communicate with our cleaning staff.</p>
+    </div>
+    <!-- Duplicate for infinite effect -->
+    <div class="feature-card">
+      <i class="bi bi-bell-fill feature-icon"></i>
+      <h4>Notifications & Reminders</h4>
+      <p>Receive timely notifications for upcoming cleaning schedules and reminders.</p>
+    </div>
+  </div>
+</div>
+ 
+ 
+ 
+<!-- About and Contact Us Section -->
+<div class="info-section">
+  <div class="info-box" routerLink="/about">
+      <i class="bi bi-info-circle info-icon"></i>
+      <h4>About Us</h4>
+      <p>Discover how we transform your hostel room into a cozy haven!</p>
+  </div>
+  <div class="info-box" routerLink="/contact">
+      <i class="bi bi-envelope info-icon"></i>
+      <h4>Contact Us</h4>
+      <p>Have questions? We're just a message away—let's chat and get your room shining!</p>
+  </div>
+</div>
+ 
+<!-- Funky Tagline Section -->
+<div class="footer-tagline">
+  <h4>✨ Sparkle & Shine for Your Hostel Nest! ✨</h4>
+  <p>Your comfort is our command—enjoy spotless spaces without lifting a finger! 🧹💫</p>
+</div>
+</body>

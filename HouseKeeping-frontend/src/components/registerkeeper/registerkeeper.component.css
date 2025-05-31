@@ -1,0 +1,52 @@
+body {
+    background: linear-gradient(to bottom, #151515, rgba(68, 64, 64, 0.7), rgba(2, 2, 2, 0.2)),
+                url("/assets/reghousekeeper.png") no-repeat center center fixed;
+    height: fit-content;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+}
+
+.container {
+    max-width: 900px;
+}
+
+.card {
+    border: none;
+}
+
+h2, h3 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.btn {
+    background-color: #5dd6a8;
+    box-shadow: 0px 2px 3px black;
+    color: black;
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    transform: translateY(-2.5px);
+}
+
+table {
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}

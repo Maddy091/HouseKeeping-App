@@ -1,0 +1,111 @@
+body {
+    height: fit-content;
+    padding: 50px;
+    background: url('/assets/home-img.png') no-repeat center center fixed;
+    display: block;
+    background-size: cover;
+    position: relative;
+    z-index: 0;
+}
+
+/* About Us Styles */
+.about-container {
+    margin: 0 200px 100px 200px;
+    position: relative;
+    padding: 50px;
+    background-color: rgba(20, 20, 20, 0.8); /* Semi-transparent dark background */
+    color: #f8f9fa; /* Light text color for better readability */
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
+    backdrop-filter: blur(10px); /* Blur effect for the background */
+    z-index: 1; /* Ensure the content is above the background */
+}
+ 
+.about-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #0dcaf0; /* Primary color for the main heading */
+}
+ 
+.about-container h2 {
+    font-size: 2rem;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #0dcaf0; /* Secondary color for subheadings */
+}
+ 
+.about-container p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+ 
+.about-container ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+}
+ 
+.about-container li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+ 
+/* Optional: Adjust link styles */
+.about-container a {
+    color: #0dcaf0; /* Link color */
+    text-decoration: underline; /* Underline links */
+}
+ 
+.about-container a:hover {
+    color: #007bff; /* Change color on hover */
+}
+ 
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .about-container {
+        margin: 0 100px 50px 100px;
+        padding: 40px;
+    }
+    .about-container h1 {
+        font-size: 2.2rem;
+    }
+    .about-container h2 {
+        font-size: 1.8rem;
+    }
+    .about-container p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        margin: 0 50px 30px 50px;
+        padding: 30px;
+    }
+    .about-container h1 {
+        font-size: 1.8rem;
+    }
+    .about-container h2 {
+        font-size: 1.5rem;
+    }
+    .about-container p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-container {
+        margin: 0 20px 20px 20px;
+        padding: 20px;
+    }
+    .about-container h1 {
+        font-size: 1.5rem;
+    }
+    .about-container h2 {
+        font-size: 1.2rem;
+    }
+    .about-container p {
+        font-size: 0.85rem;
+    }
+}

@@ -1,0 +1,93 @@
+<body>
+<div class="container my-5">
+  <div class="card shadow p-4">
+    <h2 class="mb-4 text-start">Housekeeping Feedback</h2>
+
+    <form #feedbackForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label for="requestId" class="form-label">Request ID <span class="text-danger">*</span></label>
+            <input type="text" style="background-color: lightgray;cursor: not-allowed;" class="form-control"
+                   name="requestId" [(ngModel)]="clreq.requestId" readonly>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label for="rateService" class="form-label">Rate Service <span class="text-danger">*</span></label>
+            <select class="form-control" name="feedRating" [(ngModel)]="feedback.feedRating" required
+                    #rateService="ngModel" [ngClass]="{'is-invalid': rateService.invalid && rateService.touched}">
+              <option value="" disabled>Select rating</option>
+              <option value="5">Excellent</option>
+              <option value="4">Good</option>
+              <option value="3">Average</option>
+              <option value="2">Poor</option>
+              <option value="1">Very Poor</option>
+            </select>
+            <div *ngIf="rateService.invalid && rateService.touched" class="invalid-feedback">
+              Please select a rating.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label for="timeIn" class="form-label">Time In <span class="text-danger">*</span></label>
+            <input type="time" class="form-control" name="feedTimein" [(ngModel)]="feedback.feedTimein" required
+            #timeIn="ngModel" [ngClass]="{'is-invalid': submitted && timeIn.invalid}">
+            <div *ngIf="timeIn.invalid && timeIn.touched" class="invalid-feedback">
+              Time In is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label for="timeOut" class="form-label">Time Out <span class="text-danger">*</span></label>
+            <input type="time" class="form-control" id="timeOut" name="feedTimeout" [(ngModel)]="feedback.feedTimeout"
+                   required #timeOut="ngModel" [ngClass]="{'is-invalid': timeOut.invalid && timeOut.touched}">
+            <div *ngIf="timeOut.invalid && timeOut.touched" class="invalid-feedback">
+              Time Out is required.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label for="suggestions" class="form-label">Suggestions</label>
+            <textarea class="form-control" name="feedSuggestion" [(ngModel)]="feedback.feedSuggestion" maxlength="250"
+                      rows="2" placeholder="Enter your suggestions here..." #suggestions="ngModel"
+                      [ngClass]="{'is-invalid': suggestions.invalid && suggestions.touched}"></textarea>
+            <div *ngIf="suggestions.invalid && suggestions.touched" class="invalid-feedback">
+              Suggestions can't exceed 250 characters.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label for="complaints" class="form-label">Complaints</label>
+            <textarea class="form-control" name="feedComplaints" [(ngModel)]="feedback.feedComplaints" maxlength="250"
+                      rows="2" placeholder="Enter any complaints here..." #complaints="ngModel"
+                      [ngClass]="{'is-invalid': complaints.invalid && complaints.touched}"></textarea>
+            <div *ngIf="complaints.invalid && complaints.touched" class="invalid-feedback">
+              Complaints can't exceed 250 characters.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="showMessage" class="alert alert-warning">
+        {{ message }}
+      </div>
+      <div class="text-start">
+        <button type="submit" class="btn btn-primary" [disabled]="feedbackForm.invalid">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+</body>

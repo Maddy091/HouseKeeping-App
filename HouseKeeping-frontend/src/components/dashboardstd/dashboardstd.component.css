@@ -1,0 +1,58 @@
+body {
+    background: linear-gradient(to bottom, #151515, rgba(68, 64, 64, 0.7), rgba(2, 2, 2, 0.2)), 
+                url("/assets/dashboardadm.png") no-repeat center fixed;
+    height: 100vh;
+    margin-top: -48px;
+    background-size: cover;
+    padding: 80px;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 900px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+ 
+h1 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    border: none;
+}
+ 
+.table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+ 
+.table th, .table td {
+    padding: 10px;
+}
+ 
+.table th {
+    background-color: white;
+    color: black;
+}
+ 
+.table td {
+    border: none;
+}
+
+.table tr:hover {
+    background: linear-gradient(45deg, yellow, orange);
+    animation: glitter 1s infinite;
+}
+ 
+@keyframes glitter {
+    0% { background-color: yellow; }
+    50% { background-color: orange; }
+    100% { background-color: yellow; }
+}
+ 
+.btn-outline-primary {
+    font-weight: bold;
+}

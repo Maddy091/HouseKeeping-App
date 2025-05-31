@@ -1,0 +1,46 @@
+body {
+    background: linear-gradient(to bottom, #151515, rgba(68, 64, 64, 0.7), rgba(2, 2, 2, 0.2)), 
+                url("/assets/dashboardadm.png") no-repeat center center fixed;
+    height: 100vh;
+    margin-top: -48px;
+    background-size: cover;
+}
+
+label {
+    font-weight: bold;
+}
+
+.container {
+    max-width: 800px;
+}
+
+.card {
+    border-radius: 10px;
+    border: none;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    font-size: 16px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    color: #000;
+}
+
+#requestChange {
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+@media (max-width: 576px) {
+    .container {
+      padding: 0 15px;
+    }
+ 
+    .row {
+      flex-direction: column;
+    }
+}

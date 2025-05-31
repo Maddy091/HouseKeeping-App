@@ -1,0 +1,30 @@
+<body>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Suggestions</h2>
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">Suggestions Overview</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>HouseKeeper</th>
+                        <th>Room</th>
+                        <th>Date</th>
+                        <th>Suggestion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let feedback of feedbacks">
+                        <td>{{ feedback.creq.houseKeeper.wordkername }}</td>
+                        <td>{{ feedback.creq.std.roomNumber }}</td>
+                        <td>{{ feedback.creq.reqtime | date:'shortDate' }}</td>
+                        <td>{{ feedback.feedSuggestion }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>

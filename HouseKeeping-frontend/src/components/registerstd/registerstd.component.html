@@ -1,0 +1,78 @@
+<body>
+  <div class="container mt-4">
+    <div class="card p-4 shadow" style="border-radius: 15px; backdrop-filter: blur(10px);">
+      <h2 class="text-center">Register Student</h2>
+      <form>
+        <div class="row mb-3">
+          <div class="col-md-4" [hidden]="update">
+            <label class="form-label">Roll Number</label>
+            <input type="text" class="form-control" name="std.rollId"  [(ngModel)]="std.rollId" (onchange)="check1()" placeholder="Enter Roll Number" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Room Number</label>
+            <input type="number" name="room" [(ngModel)]="room" class="form-control" placeholder="Enter [1-30]" (onchange)="check()" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Floor</label>
+            <select class="form-select" name="std.floor" [(ngModel)]="std.floor" required>
+              <option [ngValue]="null" disabled selected>Select Floor</option>
+              <option *ngFor="let f of [1,2,3,4,5,6,7,8]" [ngValue]="f">{{f}}</option>
+            </select>
+          </div>
+        </div>
+        <div *ngIf="!check()">
+          <p style="color: red;">*Room Number should be between 1-30</p>
+        </div>
+        <div *ngIf="successReg || updateReg || deleteReg || invalidform" [ngClass]="{'alert-danger': invalidform, 'alert-success': successReg || deleteReg || updateReg}" 
+          class="alert text-center w-100 p-3 mt-3">
+          {{message}}
+        </div>
+        <div *ngIf="!check1()">
+          <p style="color: red;">Pattern of rollno. should be [2024****]</p>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <button type="button" style="background-color: #5dd6a8;" class="btn w-100" (click)="onRegister()">Register</button>
+          </div>
+          <div class="col-md-6">
+            <button type="reset" class="btn btn-danger w-100" (click)="onRegister()">Clear</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Floor Buttons Navbar -->
+    <div class="navbar mt-4 d-flex flex-wrap">
+      <button *ngFor="let f of [1,2,3,4,5,6,7,8]" class="btn btn-outline-light flex-fill mx-1" (click)="filterByFloor(f)">
+        Floor {{ f }}
+      </button>
+    </div>
+
+    <!-- Registered Students Table -->
+    <div class="card mt-4 p-4 shadow" style="border-radius: 15px; backdrop-filter: blur(10px);">
+      <h3 class="text-center">Registered Students</h3>
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th>Roll Number</th>
+            <th>Room Number</th>
+            <th>Floor</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of filteredStudents" style="cursor: pointer;">
+            <td>{{ student.rollId }}</td>
+            <td>{{ student.roomNumber }}</td>
+            <td>{{ student.floor }}</td>
+            <td>
+              <button class="btn btn-sm btn-primary me-2" (click)="onUpdate(student)">Update</button>
+              <button class="btn btn-sm btn-danger" (click)="onDelete(student)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,56 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# === FRONTEND (Angular) ===
+/HouseKeeping-frontend/dist
+/HouseKeeping-frontend/tmp
+/HouseKeeping-frontend/out-tsc
+/HouseKeeping-frontend/bazel-out
+
+# Node
+/HouseKeeping-frontend/node_modules
+/HouseKeeping-frontend/npm-debug.log
+/HouseKeeping-frontend/yarn-error.log
+
+# IDEs and editors
+/HouseKeeping-frontend/.idea/
+/HouseKeeping-frontend/.project
+/HouseKeeping-frontend/.classpath
+/HouseKeeping-frontend/.c9/
+/HouseKeeping-frontend/*.launch
+/HouseKeeping-frontend/.settings/
+/HouseKeeping-frontend/*.sublime-workspace
+
+# VS Code
+/HouseKeeping-frontend/.vscode/*
+!/HouseKeeping-frontend/.vscode/settings.json
+!/HouseKeeping-frontend/.vscode/tasks.json
+!/HouseKeeping-frontend/.vscode/launch.json
+!/HouseKeeping-frontend/.vscode/extensions.json
+/HouseKeeping-frontend/.history/*
+
+# Misc
+/HouseKeeping-frontend/.angular/cache
+/HouseKeeping-frontend/.sass-cache/
+/HouseKeeping-frontend/connect.lock
+/HouseKeeping-frontend/coverage
+/HouseKeeping-frontend/libpeerconnection.log
+/HouseKeeping-frontend/testem.log
+/HouseKeeping-frontend/typings
+
+# System files
+/HouseKeeping-frontend/.DS_Store
+/HouseKeeping-frontend/Thumbs.db
+
+# === BACKEND (Spring Boot) ===
+/HouseKeeping-backend/target/
+/HouseKeeping-backend/.idea/
+/HouseKeeping-backend/.classpath
+/HouseKeeping-backend/.project
+/HouseKeeping-backend/.settings/
+/HouseKeeping-backend/.DS_Store
+/HouseKeeping-backend/Thumbs.db
+
+# === GENERAL ===
+*.log
+*.tmp
+.env
