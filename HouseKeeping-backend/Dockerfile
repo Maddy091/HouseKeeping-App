@@ -1,5 +1,5 @@
-# Use OpenJDK 11 slim image
-FROM openjdk:11-jdk-slim
+# Use OpenJDK 17 slim image
+FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
